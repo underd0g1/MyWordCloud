@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>inputpage</title>
+        <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    </head>
+
+  <body>
+
+<p>
+
+  word: <input id = 'word'>
+  <br>
+  score: <input id ='score'>
+  <br>
+<button id = 'submit'>submit</button>
+
+</p>
+<script>
+function setup(){
+  createCanvas(windowWidth,windowHeight);
+  console.log('running');
+
+  var button = select('#submit');
+  button.mousePressed(submitWord);
+}
+
+function submitWord(){
+  var word = select('#word').value();
+  var score = select('#score').value();
+  console.log(word,score);
+  loadJSON('/add/'+word+'/'+score, finished);
+
+  function finished(data){
+    console.log('word submitted');
+    
+  }
+
+
+}
+</script>
+
+</body>
+</html>

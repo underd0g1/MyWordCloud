@@ -1,0 +1,68 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+</head>
+<body>
+
+
+
+<script>
+
+
+function setup(){
+  createCanvas(windowWidth,windowHeight);
+  console.log('running');
+  drawData();
+
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+function drawData(){
+
+  loadJSON('/all',gotData)
+}
+
+
+
+
+
+function gotData(data){
+  background(255);
+  createA('http://localhost:3000/input.html', 'input a word');
+  console.log(data);
+  var keys = Object.keys(data);
+  for (var i = 0; i < keys.length; i++){
+    var word = keys[i];
+    var score = data[word];
+    var x = random(width-200);
+    var y = random(height-200);
+    fill(0);
+    textSize(44);
+    text
+    text(word,x,y);
+    title();
+
+
+  }
+}
+function title(){
+  var title = 'MyWordCloud';
+
+  fill(0, 102, 153, 51)
+  textSize(55);
+  textFont('Georgia');
+  text(title,50,50);
+
+
+
+
+}
+
+
+</script>
+
+</body>
+
+</html>
